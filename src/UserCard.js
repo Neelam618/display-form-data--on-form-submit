@@ -5,7 +5,7 @@ function UserCard(props) {
         props.userData.map((user) => {
             return (
                 <div style={{ width: '60%', background: '#35410d', color: 'white', padding: '2em', display: 'flex' }}>
-                    {user.name}
+                    {user.name} ({user.age})
                 </div>
             )
         })

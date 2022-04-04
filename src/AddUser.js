@@ -7,7 +7,7 @@ function AddUser(props) {
                 <label style={{ display: 'block', marginBottom: '8px' }} > Username</label>
                 <input type="text" onChange={props.usernameChangeHandler} /><br /><br />
                 <label style={{ display: 'block', marginBottom: '8px' }}>Age</label>
-                <input type="number" style={{ display: 'block' }} />
+                <input type="number" onChange={props.ageChangeHandler} style={{ display: 'block' }} />
                 <button>Submit</button>
             </form>
         </div >
