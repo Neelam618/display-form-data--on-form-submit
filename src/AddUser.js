@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function AddUser(props) {
+    const [username, setUsername] = useState("")
+    const [age, setAge] = useState("")
+
+    function usernameChangeHandler(event) {
+        setUsername(event.target.value)
+    }
+    function ageChangeHandler(event) {
+        setAge(event.target.value)
+    }
+    const onSubmitHandler = (event) => {
+        event.preventDefault()
+        props.addUserHandler(username, age)
+        setUsername("")
+        setAge("")
+    }
+
     return (
         <div style={{ width: '60%', background: '#35413d', color: 'white', padding: '2em', display: 'flex', justifyContent: 'center' }}>
-            <form onSubmit={props.onSubmitHandler}>
+            <form onSubmit={onSubmitHandler}>
                 <label style={{ display: 'block', marginBottom: '8px' }} > Username</label>
-                <input type="text" onChange={props.usernameChangeHandler} /><br /><br />
+                <input type="text" value={username} onChange={usernameChangeHandler} /><br /><br />
                 <label style={{ display: 'block', marginBottom: '8px' }}>Age</label>
-                <input type="number" onChange={props.ageChangeHandler} style={{ display: 'block' }} />
-                <button>Submit</button>
+                <input type="number" value={age} onChange={ageChangeHandler} style={{ display: 'block' }} />
+                <button style={{ marginTop: '1em' }}>Submit</button>
             </form>
         </div >
     )
